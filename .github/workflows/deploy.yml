@@ -7,7 +7,7 @@ on:
 
 env:
   DOCKER_REPOSITORY: "pokedoku2-repository"
-  IMAGE_NAME: "githubworkflow/pokedoku2-repository"
+  IMAGE_NAME: "pokedoku2"
 
 jobs:
   build_and_push:
