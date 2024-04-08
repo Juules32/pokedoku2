@@ -3,6 +3,6 @@
 
 <template>
   <main>
-    <h1>Let's test this bad boy!</h1>
+    <h1>This will be epic!</h1>
   </main>
 </template>
