@@ -7,7 +7,7 @@ on:
 
 env:
   DOCKER_REPOSITORY: "pokedoku2-repository"
-  IMAGE_NAME: "frontend"
+  IMAGE_NAME: "latest"
 
 jobs:
   build_and_push:
