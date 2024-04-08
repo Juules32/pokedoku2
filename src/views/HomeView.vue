@@ -3,6 +3,6 @@
 
 <template>
   <main>
-    <h1>This will be epic!</h1>
+    <h1>3x3 will go here!</h1>
   </main>
 </template>
