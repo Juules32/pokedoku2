@@ -1,8 +1,9 @@
-name: Deploy to DigitalOcean
+name: Deploy Frontend To DigitalOcean
 
 on:
   push:
-    branches: [ main ]
+    tags:
+      - "v*.*.*"
   workflow_dispatch:
 
 env:

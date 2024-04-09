@@ -1,8 +1,10 @@
+
 <script setup lang="ts">
+import Grid from '../components/Grid.vue'
 </script>
 
 <template>
   <main>
-    <h1>3x3 will go here!</h1>
+    <Grid />
   </main>
 </template>
