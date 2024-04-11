@@ -1,14 +1,12 @@
 <script lang="ts" setup>
 import axios from 'axios'
 import { ref } from 'vue'
-
+import { capitalize } from '../utils/stringManip.ts'
 const props = defineProps<{
     name: string
 }>()
 
-function capitalize(word: string) {
-    return word.charAt(0).toUpperCase() + word.slice(1);
-}
+
 
 const name = ref(capitalize(props.name))
 const pokedexNumber = ref(null)
@@ -35,7 +33,7 @@ getInformationFromAPI()
 <template> 
     <div class="flex justify-center items-center size-40 border-current border relative">
         <img :src=spriteUrl />
-        <p class="absolute top-0 left-0 right-0 text-center">{{ pokedexNumber }}</p>
+        <p class="absolute top-0 left-0 right-0 text-center">#{{ pokedexNumber }}</p>
         <p class="absolute bottom-0 left-0 right-0 text-center">{{ name }}</p>
     </div>
 </template>

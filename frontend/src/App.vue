@@ -4,5 +4,5 @@ import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <RouterView />
+  <RouterView class="font-undertale"/>
 </template>

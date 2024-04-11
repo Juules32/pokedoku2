@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  @font-face {
+    font-family: "Undertale Font";
+    src: 
+      url('../public/fonts/determinationmonoweb-webfont.woff') format('woff'),
+      url('../public/fonts/determinationmonoweb-webfont.woff2') format('woff2');
+  }
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
