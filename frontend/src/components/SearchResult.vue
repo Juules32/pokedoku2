@@ -1,8 +1,17 @@
 <script lang="ts" setup>
+import { pokemonNames, searchIndex } from '../utils/userState';
+
 defineProps<{
     name: string
     spriteUrl: string
 }>()
+
+function handleIsValidGuess(pokemonName: string) {
+
+    // Add logic for determining if it was a valid guess    
+    pokemonNames[searchIndex.value] = pokemonName
+    searchIndex.value = -1
+}
 </script>
 
 <template>
@@ -10,6 +19,6 @@ defineProps<{
 
         <img :src="spriteUrl" />
         <p class="grow text-left pl-2">{{ name }}</p>
-        <button class="btn bg-red-400">Guess</button>
+        <button class="btn bg-red-400" @click="handleIsValidGuess(name)">Guess</button>
     </div>
 </template>
