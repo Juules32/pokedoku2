@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { ref, watch } from 'vue'
-import { capitalize } from '../utils/stringManip'
 import { getSearchData } from '../utils/pokeAPI';
 import SearchResult from './SearchResult.vue';
 
@@ -33,7 +32,7 @@ watch(search, async newValue => {
                 <li v-for="pokemon in filteredPokemon" class="hover:bg-gray-200">
                     <SearchResult 
                         :spriteUrl="pokemon.spriteUrl" 
-                        :name="capitalize(pokemon.name)"
+                        :name="pokemon.name"
                     />
                 </li>
             </ul>

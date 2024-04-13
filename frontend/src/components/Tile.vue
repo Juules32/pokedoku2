@@ -4,6 +4,7 @@ import { ref } from 'vue'
 import { capitalize } from '../utils/stringManip.ts'
 const props = defineProps<{
     name: string
+    index: number
 }>()
 
 
@@ -31,9 +32,17 @@ getInformationFromAPI()
 </script>
 
 <template> 
-    <div class="flex justify-center items-center size-40 border-current border relative">
+    
+    <div class="bg-white flex justify-center items-center size-40 border-black border relative"
+        :class="{
+            ['rounded-tl-xl']: index==0,
+            ['rounded-tr-xl']: index==2,
+            ['rounded-bl-xl']: index==6,
+            ['rounded-br-xl']: index==8
+        }"
+    >
         <img :src=spriteUrl />
-        <p class="absolute top-0 left-0 right-0 text-center">#{{ pokedexNumber }}</p>
+        <p v-if="pokedexNumber" class="absolute top-0 left-0 right-0 text-center">#{{ pokedexNumber }}</p>
         <p class="absolute bottom-0 left-0 right-0 text-center">{{ name }}</p>
     </div>
 </template>

@@ -20,3 +20,29 @@ app.add_middleware(
 @app.get("/answer")
 def get_answer():
     return {"answer": 42}
+
+@app.get("/dailyData")
+def get_daily_data():
+    return {
+        "validPokemon": [
+            ["ponyta"],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+        ],
+        "columnCriteria": [
+            "type-grass",
+            "region-kanto",
+            "knows-pluck"
+        ],
+        "rowCriteria": [
+            "type-fire",
+            "type-ground",
+            "type-ghost"
+        ] 
+    }

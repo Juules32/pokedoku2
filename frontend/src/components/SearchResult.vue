@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-import { pokemonNames, searchIndex } from '../utils/userState';
+import { pokemonNames, searchIndex, validPokemon } from '../utils/userState';
+import { capitalize } from '../utils/stringManip';
 
 defineProps<{
     name: string
@@ -7,9 +8,15 @@ defineProps<{
 }>()
 
 function handleIsValidGuess(pokemonName: string) {
+    console.log(pokemonName, validPokemon)
 
+    if (validPokemon[searchIndex.value].includes(pokemonName)) {
+        pokemonNames[searchIndex.value] = pokemonName
+    }
+    else {
+        console.log("WRONG")
+    }
     // Add logic for determining if it was a valid guess    
-    pokemonNames[searchIndex.value] = pokemonName
     searchIndex.value = -1
 }
 </script>
@@ -18,7 +25,7 @@ function handleIsValidGuess(pokemonName: string) {
     <div class="flex items-center p-2">
 
         <img :src="spriteUrl" />
-        <p class="grow text-left pl-2">{{ name }}</p>
+        <p class="grow text-left pl-2">{{ capitalize(name) }}</p>
         <button class="btn bg-red-400" @click="handleIsValidGuess(name)">Guess</button>
     </div>
 </template>

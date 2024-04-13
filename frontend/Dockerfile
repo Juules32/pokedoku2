@@ -4,6 +4,10 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
+
+ARG VITE_BACKEND_HOST=localhost
+ENV VITE_BACKEND_HOST=${VITE_BACKEND_HOST}
+
 RUN npm run build
 
 # Prod
