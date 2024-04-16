@@ -5,7 +5,7 @@ defineProps<{
 </script>
 
 <template>
-    <img class="w-16" :src="`/src/assets/types/${type}.png`" :alt="type" />
+    <img class="w-16" :src="`/assets/types/${type}.png`" :alt="type" />
 </template>
 
 <style scoped>

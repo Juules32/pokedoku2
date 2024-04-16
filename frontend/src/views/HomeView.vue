@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Grid from '../components/Grid.vue'
 
-function getRandomBackground() {
+function getRandomBackgroundPath() {
 	const backgroundNames: string[] = [
 		"forest",
 		"berry-forest",
@@ -20,8 +20,7 @@ function getRandomBackground() {
 		"victory-road",
 		"warehouse"
 	]
-	const randomBackground = backgroundNames[Math.floor(Math.random() * backgroundNames.length)]
-	return `/src/assets/backgrounds/${randomBackground}.png`
+	return `/assets/backgrounds/${backgroundNames[Math.floor(Math.random() * backgroundNames.length)]}.png`
 }
 </script>
 
@@ -30,7 +29,7 @@ function getRandomBackground() {
 		<div 
 			class="fixed inset-0 flex justify-center items-center bg-center bg-cover" 
 			:style="{ 
-				'background-image': 'url(' + getRandomBackground() + ')',
+				'background-image': 'url(' + getRandomBackgroundPath() + ')',
 				'image-rendering': 'pixelated'
 			}"
 		>
