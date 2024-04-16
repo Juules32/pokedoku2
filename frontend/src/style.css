@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .disable-blur{
+      image-rendering: -webkit-optimize-contrast;
+  }
+}
+
 @layer base {
   @font-face {
     font-family: "Undertale Font";

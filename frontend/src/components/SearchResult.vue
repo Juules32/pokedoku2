@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { pokemonNames, searchIndex, validPokemon } from '../utils/userState';
-import { capitalize } from '../utils/stringManip';
 
 defineProps<{
     name: string
@@ -25,7 +24,7 @@ function handleIsValidGuess(pokemonName: string) {
     <div class="flex items-center p-2">
 
         <img :src="spriteUrl" />
-        <p class="grow text-left pl-2">{{ capitalize(name) }}</p>
+        <p class="grow text-left pl-2 capitalize">{{ name }}</p>
         <button class="btn bg-red-400" @click="handleIsValidGuess(name)">Guess</button>
     </div>
 </template>
