@@ -25,7 +25,7 @@ function gridIndexToCriteriaIndex(index: number) {
     return validRowOrColumnIndeces.indexOf(index)
 }
 
-function getCriteriaName(index: number) {
+function getCriteria(index: number) {
     const criteriaIndex = gridIndexToCriteriaIndex(index)
     if (criteriaIndex >= 3) {
         return rowCriteria[criteriaIndex % 3]
@@ -51,7 +51,8 @@ function getCriteriaName(index: number) {
                 />
                 <Criteria 
                     v-else-if="gridIndexToCriteriaIndex(index) >= 0" 
-                    :criteriaName="getCriteriaName(index)"
+                    :criteriaCategory="getCriteria(index)['category']"
+                    :criteriaContent="getCriteria(index)['content']"
                 />
                 <div v-else></div>
             </div>

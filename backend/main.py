@@ -2,7 +2,7 @@ import os
 from fastapi import FastAPI, File, Form, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
-
+from daily_grid_generation import daily_grid
 load_dotenv()
 
 FRONTEND_HOST = os.getenv("FRONTEND_HOST")
@@ -23,26 +23,4 @@ def get_answer():
 
 @app.get("/dailyData")
 def get_daily_data():
-    return {
-        "validPokemon": [
-            ["ponyta"],
-            [],
-            [],
-            [],
-            [],
-            [],
-            [],
-            [],
-            []
-        ],
-        "columnCriteria": [
-            "type-grass",
-            "region-kanto",
-            "knows-pluck"
-        ],
-        "rowCriteria": [
-            "type-fire",
-            "type-ground",
-            "type-ghost"
-        ] 
-    }
+    return daily_grid

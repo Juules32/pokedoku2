@@ -1,19 +1,13 @@
 <script setup lang="ts">
 import TypeIcon from './TypeIcon.vue';
 defineProps<{
-    criteriaName: string
+    criteriaCategory: string
+    criteriaContent: string
 }>()
 
 
-function parseCriteria(criteriaName: string) {
-    if (criteriaName.startsWith("region")) {
-        return `Region: ${criteriaName.split("-")[1]}`
-    }
-    else if (criteriaName.startsWith("knows")) {
-        return `Knows ${criteriaName.split("-")[1]}`
-    }
-
-    return criteriaName
+function parseCriteria(criteriaCategory: string, criteriaContent: string) {
+    return `${criteriaCategory}: ${criteriaContent}`
 }
 
 </script>
@@ -21,7 +15,7 @@ function parseCriteria(criteriaName: string) {
 <template>
     <!-- make this prettier -->    
     <div class="size-40 flex justify-center items-center">
-        <TypeIcon v-if="criteriaName.startsWith('type')" :type="criteriaName" />
-        <a v-else class="capitalize text-xl">{{ parseCriteria(criteriaName) }}</a>
+        <TypeIcon v-if="criteriaCategory == 'type'" :type="criteriaContent" />
+        <a v-else class="capitalize text-xl">{{ parseCriteria(criteriaCategory, criteriaContent) }}</a>
     </div>
 </template>
