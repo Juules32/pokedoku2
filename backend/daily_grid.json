@@ -1,0 +1,95 @@
+{
+    "validPokemon": [
+        [
+            "tatsugiri",
+            "walking-wake",
+            "tatsugiri-droopy",
+            "kingdra",
+            "tatsugiri-stretchy",
+            "dracovish",
+            "palkia-origin",
+            "palkia"
+        ],
+        [
+            "dracozolt",
+            "ampharos-mega",
+            "miraidon-glide-mode",
+            "miraidon-aquatic-mode",
+            "miraidon-low-power-mode",
+            "miraidon-drive-mode",
+            "raging-bolt",
+            "zekrom",
+            "miraidon"
+        ],
+        [
+            "dreepy",
+            "giratina-origin",
+            "drakloak",
+            "giratina-altered",
+            "dragapult"
+        ],
+        [
+            "bibarel"
+        ],
+        [
+            "helioptile",
+            "heliolisk"
+        ],
+        [
+            "zoroark-hisui",
+            "zorua-hisui"
+        ],
+        [
+            "palpitoad",
+            "quagsire",
+            "swampert-mega",
+            "swampert",
+            "gastrodon",
+            "barboach",
+            "wooper",
+            "whiscash",
+            "seismitoad",
+            "marshtomp"
+        ],
+        [
+            "sandy-shocks",
+            "stunfisk"
+        ],
+        [
+            "runerigus",
+            "palossand",
+            "sandygast",
+            "golurk",
+            "golett",
+            "yamask-galar"
+        ]
+    ],
+    "columnCriteria": [
+        {
+            "category": "type",
+            "content": "water"
+        },
+        {
+            "category": "type",
+            "content": "electric"
+        },
+        {
+            "category": "type",
+            "content": "ghost"
+        }
+    ],
+    "rowCriteria": [
+        {
+            "category": "type",
+            "content": "dragon"
+        },
+        {
+            "category": "type",
+            "content": "normal"
+        },
+        {
+            "category": "type",
+            "content": "ground"
+        }
+    ]
+}

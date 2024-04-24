@@ -1,4 +1,4 @@
-import httpx, random, copy
+import httpx, random, copy, json, schedule, time
 
 all_pokemon_response = httpx.get('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
 all_pokemon_text = all_pokemon_response.text
@@ -96,6 +96,7 @@ def generate_new_grid():
             for column_result in column_results
         ]
         
+        # Returns generated data if no cells contains no valid pokemon
         if not any(len(sublist) == 0 for sublist in valid_pokemon):
             return {
                 "validPokemon": valid_pokemon,
@@ -105,5 +106,27 @@ def generate_new_grid():
         else:
             retries += 1
             print(f"Combination of categories contained empty result. Retries: ${retries}")
-            
-daily_grid = generate_new_grid()
+
+def load_daily_grid_json():
+    with open("daily_grid.json", "r") as daily_grid_json:
+        loaded_json = json.load(daily_grid_json)
+    print("Loaded daily grid data!")
+    return loaded_json
+    
+daily_grid = load_daily_grid_json()
+
+def update_daily_grid():
+    new_grid = generate_new_grid()
+    with open("daily_grid.json", "w") as daily_grid_json:
+        json.dump(new_grid, daily_grid_json, indent=4)
+        
+    global daily_grid
+    daily_grid = new_grid
+    print("Updated daily grid data!")
+
+schedule.every().day.at("00:00").do(update_daily_grid)
+
+while True:
+    print("Checking for scheduled events...")
+    schedule.run_pending()
+    time.sleep(100)
