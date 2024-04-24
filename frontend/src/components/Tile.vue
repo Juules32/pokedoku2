@@ -39,7 +39,7 @@ getInformationFromAPI()
             ['rounded-br-xl']: index==8
         }"
     >
-        <img :src=spriteUrl />
+        <img v-if="spriteUrl" :src=spriteUrl class="size-full"/>
         <p v-if="pokedexNumber" class="absolute top-0 left-0 right-0 text-center">#{{ pokedexNumber }}</p>
         <p class="absolute bottom-0 left-0 right-0 text-center capitalize">{{ name }}</p>
     </div>
