@@ -13,6 +13,8 @@ RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 # Copy everything to the container
 COPY ./*.py /code/
+COPY ./*.json /code/
+
 
 # Will be run once the container is started from the image
 # Runs from the WORKDIR directory

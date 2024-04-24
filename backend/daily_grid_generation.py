@@ -1,4 +1,4 @@
-import httpx, random, copy, json, schedule, time
+import httpx, random, copy, json, schedule, time, threading
 
 all_pokemon_response = httpx.get('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
 all_pokemon_text = all_pokemon_response.text
@@ -28,13 +28,9 @@ categories = [
     "type"
 ]
 
-
 def get_pokemon_of_type(type) -> set:
     response = httpx.get(f'https://pokeapi.co/api/v2/type/{type}').json()["pokemon"]
     return {entry['pokemon']['name'] for entry in response}
-
-
-
 
 def generate_new_grid():
     retries = 0
@@ -63,7 +59,6 @@ def generate_new_grid():
             if category == "type":
                 row_contents.append(unused_types.pop(random.randrange(len(unused_types))))
             # Add handling of other content here
-        
         
         column_criteria = [
             {
@@ -112,21 +107,29 @@ def load_daily_grid_json():
         loaded_json = json.load(daily_grid_json)
     print("Loaded daily grid data!")
     return loaded_json
-    
+
 daily_grid = load_daily_grid_json()
+# daily_grid = generate_new_grid() # for development
 
 def update_daily_grid():
+    global daily_grid
+
     new_grid = generate_new_grid()
     with open("daily_grid.json", "w") as daily_grid_json:
         json.dump(new_grid, daily_grid_json, indent=4)
         
-    global daily_grid
-    daily_grid = new_grid
+    daily_grid.update(new_grid)
     print("Updated daily grid data!")
 
+# Schedules the grid data to update every new day
 schedule.every().day.at("00:00").do(update_daily_grid)
 
-while True:
-    print("Checking for scheduled events...")
-    schedule.run_pending()
-    time.sleep(100)
+def check_for_scheduled_tasks():
+    while True:
+        print("Checking for scheduled events...")
+        schedule.run_pending()
+        time.sleep(1000)
+
+scheduled_thread = threading.Thread(target=check_for_scheduled_tasks)
+scheduled_thread.daemon = True
+scheduled_thread.start()

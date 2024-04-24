@@ -1,95 +1,97 @@
 {
     "validPokemon": [
         [
-            "tatsugiri",
-            "walking-wake",
-            "tatsugiri-droopy",
-            "kingdra",
-            "tatsugiri-stretchy",
-            "dracovish",
-            "palkia-origin",
-            "palkia"
+            "naganadel",
+            "eternatus",
+            "dragalge",
+            "eternatus-eternamax"
         ],
         [
-            "dracozolt",
-            "ampharos-mega",
-            "miraidon-glide-mode",
-            "miraidon-aquatic-mode",
-            "miraidon-low-power-mode",
-            "miraidon-drive-mode",
-            "raging-bolt",
-            "zekrom",
-            "miraidon"
+            "munkidori",
+            "slowbro-galar",
+            "slowking-galar"
         ],
         [
-            "dreepy",
-            "giratina-origin",
+            "salazzle-totem",
+            "salazzle",
+            "salandit",
+            "iron-moth"
+        ],
+        [
             "drakloak",
+            "giratina-origin",
             "giratina-altered",
+            "dreepy",
             "dragapult"
         ],
         [
-            "bibarel"
+            "hoopa",
+            "lunala",
+            "necrozma-dawn",
+            "calyrex-shadow"
         ],
         [
-            "helioptile",
-            "heliolisk"
+            "chandelure",
+            "ceruledge",
+            "marowak-alola",
+            "typhlosion-hisui",
+            "blacephalon",
+            "marowak-totem",
+            "litwick",
+            "skeledirge",
+            "lampent"
         ],
         [
-            "zoroark-hisui",
-            "zorua-hisui"
+            "goodra-hisui",
+            "dialga",
+            "dialga-origin",
+            "sliggoo-hisui",
+            "archaludon",
+            "duraludon",
+            "duraludon-gmax"
         ],
         [
-            "palpitoad",
-            "quagsire",
-            "swampert-mega",
-            "swampert",
-            "gastrodon",
-            "barboach",
-            "wooper",
-            "whiscash",
-            "seismitoad",
-            "marshtomp"
+            "jirachi",
+            "metagross-mega",
+            "iron-crown",
+            "necrozma-dusk",
+            "bronzong",
+            "bronzor",
+            "metang",
+            "metagross",
+            "solgaleo",
+            "beldum"
         ],
         [
-            "sandy-shocks",
-            "stunfisk"
-        ],
-        [
-            "runerigus",
-            "palossand",
-            "sandygast",
-            "golurk",
-            "golett",
-            "yamask-galar"
+            "heatran"
         ]
     ],
     "columnCriteria": [
-        {
-            "category": "type",
-            "content": "water"
-        },
-        {
-            "category": "type",
-            "content": "electric"
-        },
-        {
-            "category": "type",
-            "content": "ghost"
-        }
-    ],
-    "rowCriteria": [
         {
             "category": "type",
             "content": "dragon"
         },
         {
             "category": "type",
-            "content": "normal"
+            "content": "psychic"
         },
         {
             "category": "type",
-            "content": "ground"
+            "content": "fire"
+        }
+    ],
+    "rowCriteria": [
+        {
+            "category": "type",
+            "content": "poison"
+        },
+        {
+            "category": "type",
+            "content": "ghost"
+        },
+        {
+            "category": "type",
+            "content": "steel"
         }
     ]
 }
