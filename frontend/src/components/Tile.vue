@@ -1,12 +1,11 @@
 <script lang="ts" setup>
 import axios from 'axios'
 import { ref } from 'vue'
+
 const props = defineProps<{
     name: string
     index: number
 }>()
-
-
 
 const name = ref(props.name)
 const pokedexNumber = ref(null)
@@ -32,7 +31,7 @@ getInformationFromAPI()
 
 <template> 
     
-    <div class="bg-white flex justify-center items-center size-40 border-black border relative"
+    <div class="size-full bg-white flex justify-center items-center border-black border relative"
         :class="{
             ['rounded-tl-xl']: index==0,
             ['rounded-tr-xl']: index==2,

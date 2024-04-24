@@ -3,6 +3,7 @@ import Tile from './Tile.vue'
 import Search from './Search.vue';
 import { pokemonNames, searchIndex, columnCriteria, rowCriteria } from '../utils/userState';
 import Criteria from './Criteria.vue';
+import { useWindowSize } from 'vue-window-size';
 
 function handleShowSearch(index: number) {
     searchIndex.value = index
@@ -35,12 +36,16 @@ function getCriteria(index: number) {
     }
 }
 
+const { width, height } = useWindowSize()
+function getTileWidth() {
+    return width.value > height.value ? "size-[20vh]" : "size-[20vw]"
+}
+
 </script>
 
 <template>
     <div>
-
-        <div class="size-fit overflow-hidden grid grid-cols-5">
+        <div class="grid grid-cols-5">
             <div v-for="index in [...Array(25).keys()]">
                 <Tile 
                     v-if="gridIndexToPokeIndex(index) >= 0"
@@ -50,10 +55,12 @@ function getCriteria(index: number) {
                     @click="handleShowSearch(gridIndexToPokeIndex(index))"
                 />
                 <Criteria 
-                    v-else-if="gridIndexToCriteriaIndex(index) >= 0" 
+                    v-else-if="gridIndexToCriteriaIndex(index) >= 0"
+                    :class="getTileWidth()" 
                     :criteriaCategory="getCriteria(index)['category']"
                     :criteriaContent="getCriteria(index)['content']"
                 />
+                <!-- Empty box to align remaining cells properly -->
                 <div v-else></div>
             </div>
         </div>
