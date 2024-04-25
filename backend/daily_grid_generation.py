@@ -144,7 +144,7 @@ daily_grid = load_daily_grid_json()
 # daily_grid = generate_new_grid() # for development
 
 # Schedules the grid data to update every new day
-schedule.every().day.at("00:00").do(update_daily_grid)
+schedule.every(10).minutes.do(update_daily_grid)
 
 def check_for_scheduled_tasks():
     while True:
