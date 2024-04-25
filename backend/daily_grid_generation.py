@@ -144,13 +144,13 @@ daily_grid = load_daily_grid_json()
 # daily_grid = generate_new_grid() # for development
 
 # Schedules the grid data to update every new day
-schedule.every(10).minutes.do(update_daily_grid)
+schedule.every().day.at("00:00").do(update_daily_grid)
 
 def check_for_scheduled_tasks():
     while True:
         print("Checking for scheduled events...")
         schedule.run_pending()
-        time.sleep(1000)
+        time.sleep(100)
 
 scheduled_thread = threading.Thread(target=check_for_scheduled_tasks)
 scheduled_thread.daemon = True
