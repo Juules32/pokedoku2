@@ -1,79 +1,113 @@
 {
     "validPokemon": [
         [
-            "naganadel",
-            "eternatus",
-            "dragalge",
-            "eternatus-eternamax"
+            "regice",
+            "sealeo",
+            "glalie",
+            "walrein",
+            "snorunt",
+            "spheal"
         ],
         [
-            "munkidori",
-            "slowbro-galar",
-            "slowking-galar"
+            "kyogre",
+            "huntail",
+            "wailord",
+            "wingull",
+            "whiscash",
+            "relicanth",
+            "luvdisc",
+            "sealeo",
+            "gorebyss",
+            "spheal",
+            "clamperl",
+            "pelipper",
+            "feebas",
+            "corphish",
+            "crawdaunt",
+            "lombre",
+            "sharpedo",
+            "walrein",
+            "marshtomp",
+            "ludicolo",
+            "lotad",
+            "wailmer",
+            "barboach",
+            "carvanha",
+            "surskit",
+            "swampert",
+            "milotic",
+            "mudkip"
         ],
         [
-            "salazzle-totem",
-            "salazzle",
-            "salandit",
-            "iron-moth"
+            "combusken",
+            "camerupt",
+            "torkoal",
+            "blaziken",
+            "numel",
+            "torchic"
         ],
         [
-            "drakloak",
-            "giratina-origin",
-            "giratina-altered",
-            "dreepy",
-            "dragapult"
+            "avalugg",
+            "bergmite",
+            "amaura",
+            "aurorus"
         ],
         [
-            "hoopa",
-            "lunala",
-            "necrozma-dawn",
-            "calyrex-shadow"
+            "greninja",
+            "clawitzer",
+            "clauncher",
+            "barbaracle",
+            "froakie",
+            "binacle",
+            "frogadier",
+            "skrelp",
+            "volcanion"
         ],
         [
-            "chandelure",
-            "ceruledge",
-            "marowak-alola",
-            "typhlosion-hisui",
+            "delphox",
+            "talonflame",
+            "pyroar",
+            "litleo",
+            "fletchinder",
+            "braixen",
+            "fennekin",
+            "volcanion"
+        ],
+        [
+            "crabominable"
+        ],
+        [
+            "popplio",
+            "araquanid",
+            "primarina",
+            "wimpod",
+            "tapu-fini",
+            "golisopod",
+            "toxapex",
+            "pyukumuku",
+            "brionne",
+            "mareanie",
+            "bruxish",
+            "dewpider"
+        ],
+        [
             "blacephalon",
-            "marowak-totem",
-            "litwick",
-            "skeledirge",
-            "lampent"
-        ],
-        [
-            "goodra-hisui",
-            "dialga",
-            "dialga-origin",
-            "sliggoo-hisui",
-            "archaludon",
-            "duraludon",
-            "duraludon-gmax"
-        ],
-        [
-            "jirachi",
-            "metagross-mega",
-            "iron-crown",
-            "necrozma-dusk",
-            "bronzong",
-            "bronzor",
-            "metang",
-            "metagross",
-            "solgaleo",
-            "beldum"
-        ],
-        [
-            "heatran"
+            "incineroar",
+            "litten",
+            "salandit",
+            "turtonator",
+            "salazzle",
+            "torracat"
         ]
     ],
     "columnCriteria": [
         {
             "category": "type",
-            "content": "dragon"
+            "content": "ice"
         },
         {
             "category": "type",
-            "content": "psychic"
+            "content": "water"
         },
         {
             "category": "type",
@@ -82,16 +116,16 @@
     ],
     "rowCriteria": [
         {
-            "category": "type",
-            "content": "poison"
+            "category": "region",
+            "content": "hoenn"
         },
         {
-            "category": "type",
-            "content": "ghost"
+            "category": "region",
+            "content": "kalos"
         },
         {
-            "category": "type",
-            "content": "steel"
+            "category": "region",
+            "content": "alola"
         }
     ]
 }

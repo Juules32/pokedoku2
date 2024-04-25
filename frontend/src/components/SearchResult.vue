@@ -7,10 +7,9 @@ defineProps<{
 }>()
 
 function handleIsValidGuess(pokemonName: string) {
-    console.log(pokemonName, validPokemon)
-
     if (validPokemon[searchIndex.value].includes(pokemonName)) {
         pokemonNames[searchIndex.value] = pokemonName
+        console.log("CORRECT")
     }
     else {
         console.log("WRONG")

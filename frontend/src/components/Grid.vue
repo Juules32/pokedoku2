@@ -7,7 +7,6 @@ import { useWindowSize } from 'vue-window-size';
 
 function handleShowSearch(index: number) {
     searchIndex.value = index
-    console.log(`Currently searching for tile with index ${index}`)
 }
 
 function handleCloseSearch(event: Event) {

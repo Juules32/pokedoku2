@@ -56,5 +56,3 @@ export const validPokemon = dailyData.validPokemon
 export const rowCriteria = dailyData.rowCriteria
 
 export const columnCriteria = dailyData.columnCriteria
-
-console.log(dailyData)

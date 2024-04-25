@@ -24,66 +24,87 @@ pokemon_types = [
     "water"
 ]
 
+pokemon_regions = [
+    "kanto",
+    "johto",
+    "hoenn",
+    "sinnoh",
+    "unova",
+    "kalos",
+    "alola",
+    "galar",
+    "paldea"
+]
+
+region_to_generation = { k:v for (k,v) in zip(pokemon_regions, range(1, 10))}  
+
 categories = [
-    "type"
+    "type",
+    "region"
 ]
 
 def get_pokemon_of_type(type) -> set:
     response = httpx.get(f'https://pokeapi.co/api/v2/type/{type}').json()["pokemon"]
     return {entry['pokemon']['name'] for entry in response}
 
+def get_pokemon_from_region(region) -> set:
+    generation = region_to_generation[region]
+    response = httpx.get(f'https://pokeapi.co/api/v2/generation/{generation}').json()["pokemon_species"]
+    return {entry['name'] for entry in response}
+
+def get_query_type(category):
+    if category == "type":
+        return get_pokemon_of_type
+    if category == "region":
+        return get_pokemon_from_region
+
+
+def generate_categories():
+    return [
+        random.choice(categories)
+        for _ in range(3)
+    ]
+
+def generate_contents(categories, unused_types, unused_regions):
+    contents = []
+    for category in categories:
+        if category == "type":
+            contents.append(unused_types.pop(random.randrange(len(unused_types))))
+        if category == "region":
+            contents.append(unused_regions.pop(random.randrange(len(unused_regions))))
+    return contents
+
+def generate_criteria(categories, contents):
+    return [
+        {
+            "category": categories[i],
+            "content": contents[i]
+        }
+        for i in range(3)
+    ]
+
+def get_results(criteria):
+    return [
+        get_query_type(entry["category"])(entry["content"])
+        for entry in criteria
+    ]
+
 def generate_new_grid():
     retries = 0
     
     while True:
         unused_types = copy.deepcopy(pokemon_types)
+        unused_regions = copy.deepcopy(pokemon_regions)
         
-        column_categories = [
-            random.choice(categories)
-            for _ in range(3)
-        ]
+        column_categories = generate_categories()
+        column_contents = generate_contents(column_categories, unused_types, unused_regions)
+        column_criteria = generate_criteria(column_categories, column_contents)
+        column_results = get_results(column_criteria)
         
-        row_categories = [
-            random.choice(categories)
-            for _ in range(3)
-        ]
-        
-        column_contents = []
-        for category in column_categories:
-            if category == "type":
-                column_contents.append(unused_types.pop(random.randrange(len(unused_types))))
-            # Add handling of other content here
-        
-        row_contents = []
-        for category in row_categories:
-            if category == "type":
-                row_contents.append(unused_types.pop(random.randrange(len(unused_types))))
-            # Add handling of other content here
-        
-        column_criteria = [
-            {
-                "category": column_categories[i],
-                "content": column_contents[i]
-            }
-            for i in range(3)
-        ]
-        row_criteria = [
-            {
-                "category": row_categories[i],
-                "content": row_contents[i]
-            }
-            for i in range(3)
-        ]
-        
-        column_results = [
-            get_pokemon_of_type(entry["content"])
-            for entry in column_criteria
-        ]
-        
-        row_results = [
-            get_pokemon_of_type(entry["content"])
-            for entry in row_criteria
-        ]
+        row_categories = generate_categories()
+        row_contents = generate_contents(row_categories, unused_types, unused_regions)
+        row_criteria = generate_criteria(row_categories, row_contents)
+        row_results = get_results(row_criteria)
         
         valid_pokemon = [
             list(column_result & row_result)
@@ -108,9 +129,6 @@ def load_daily_grid_json():
     print("Loaded daily grid data!")
     return loaded_json
 
-daily_grid = load_daily_grid_json()
-# daily_grid = generate_new_grid() # for development
-
 def update_daily_grid():
     global daily_grid
 
@@ -120,6 +138,10 @@ def update_daily_grid():
         
     daily_grid.update(new_grid)
     print("Updated daily grid data!")
+
+daily_grid = load_daily_grid_json()
+# update_daily_grid() # for development
+# daily_grid = generate_new_grid() # for development
 
 # Schedules the grid data to update every new day
 schedule.every().day.at("00:00").do(update_daily_grid)

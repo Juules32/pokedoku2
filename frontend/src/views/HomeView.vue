@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Grid from '../components/Grid.vue'
+import VictoryText from '../components/VictoryText.vue';
 
 function getRandomBackgroundPath() {
 	const backgroundNames: string[] = [
@@ -22,17 +23,19 @@ function getRandomBackgroundPath() {
 	]
 	return `/assets/backgrounds/${backgroundNames[Math.floor(Math.random() * backgroundNames.length)]}.png`
 }
+
 </script>
 
 <template>
 	<main>
 		<div 
-			class="fixed inset-0 flex justify-center items-center bg-center bg-cover" 
+			class="fixed inset-0 flex flex-col justify-center items-center bg-center bg-cover" 
 			:style="{ 
 				'background-image': 'url(' + getRandomBackgroundPath() + ')',
 				'image-rendering': 'pixelated'
 			}"
 		>
+			<VictoryText />
 			<Grid />
 		</div>
 	</main>
