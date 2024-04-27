@@ -26,7 +26,9 @@ async function getInformationFromAPI() {
     }
 }
 
-getInformationFromAPI()
+if (name.value) {
+    getInformationFromAPI()
+}
 
 </script>
 
