@@ -8,6 +8,6 @@ export async function getDailyData() {
         }
         return response.data
     } catch (error) {
-
+        console.error(error)
     }
 }

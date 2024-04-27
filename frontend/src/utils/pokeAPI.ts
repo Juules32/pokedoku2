@@ -1,5 +1,6 @@
 import axios from "axios";
 import { Pokemon } from "./interfaces";
+import { isNameLegal } from "./userState";
 
 function customSort(a: Pokemon, b: Pokemon, searchLowerCase: string): number {
     // Check if names start with the search string
@@ -25,9 +26,11 @@ export async function getSearchData(search: string) {
         }
         const searchLowerCase = search.toLowerCase()
         const filteredResponse =
-            response.data.results.filter((pokemon: Pokemon) => pokemon.name.toLowerCase().includes(searchLowerCase))
-            .sort((a: Pokemon, b: Pokemon) => customSort(a, b, searchLowerCase))
-            .slice(0, 10)
+            response.data.results
+                .filter((pokemon: Pokemon) => isNameLegal(pokemon.name))
+                .filter((pokemon: Pokemon) => pokemon.name.includes(searchLowerCase))
+                .sort((a: Pokemon, b: Pokemon) => customSort(a, b, searchLowerCase))
+                .slice(0, 10)
 
         const spriteUrls = await Promise.all(filteredResponse.map(async (pokemon: Pokemon) => {
             const spriteUrl = await getPokemonSprite(pokemon.url);
@@ -35,7 +38,7 @@ export async function getSearchData(search: string) {
         }));
         return spriteUrls
     } catch (error) {
-
+        console.error(error)
     }
 }
 
@@ -47,6 +50,6 @@ export async function getPokemonSprite(url: string) {
         }
         return response.data.sprites.front_default
     } catch (error) {
-
+        console.error(error)
     }
 }

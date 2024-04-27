@@ -22,6 +22,7 @@ async function getInformationFromAPI() {
         pokedexNumber.value = response.data.id,
         spriteUrl.value = response.data.sprites.front_default
     } catch (error) {
+        console.error(error)
     }
 }
 
