@@ -1,118 +1,90 @@
 {
     "validPokemon": [
         [
-            "calyrex-shadow",
-            "spectrier"
+            "frosmoth",
+            "snom"
         ],
         [
-            "regirock",
-            "tsareena",
-            "regice",
-            "wooloo",
-            "kingler",
-            "cufant",
-            "glastrier",
-            "rampardos",
-            "lickilicky",
-            "mudbray",
-            "kangaskhan",
-            "lickitung",
-            "blitzle",
-            "stonjourner",
-            "registeel",
-            "mudsdale",
-            "steenee",
-            "kangaskhan-mega",
-            "ponyta",
-            "cranidos",
-            "krabby",
-            "copperajah",
-            "miltank",
-            "entei",
-            "regigigas",
-            "mudkip",
-            "bouffalant",
-            "slowpoke-galar",
-            "zebstrika",
-            "loudred",
-            "ponyta-galar",
-            "spectrier",
-            "tauros",
-            "exploud",
-            "rapidash",
-            "stantler",
-            "whismur"
+            "dewgong",
+            "lapras-gmax",
+            "jynx",
+            "articuno",
+            "cloyster",
+            "lapras"
         ],
         [
-            "rapidash",
-            "entei",
-            "ponyta",
-            "volcanion",
-            "numel",
-            "gouging-fire"
+            "abomasnow",
+            "abomasnow-mega",
+            "snover"
         ],
         [
-            "froslass"
+            "crustle",
+            "shuckle",
+            "anorith",
+            "kleavor",
+            "dwebble",
+            "armaldo"
         ],
         [
-            "darmanitan-galar-standard",
-            "regice",
-            "glastrier",
-            "glaceon",
-            "cetitan",
-            "vanillite",
-            "beartic",
-            "bergmite",
-            "cetoddle",
-            "eiscue-ice",
-            "snorunt",
-            "glalie",
-            "vanilluxe",
-            "cubchoo",
-            "avalugg",
-            "glalie-mega",
-            "castform-snowy",
-            "vulpix-alola",
-            "cryogonal",
-            "vanillish",
-            "eiscue-noice",
-            "darumaka-galar"
+            "omanyte",
+            "golem",
+            "kabuto",
+            "rhyhorn",
+            "kabutops",
+            "aerodactyl",
+            "geodude",
+            "omastar",
+            "onix",
+            "aerodactyl-mega",
+            "graveler",
+            "rhydon"
         ],
         [
-            "darmanitan-galar-zen"
+            "cradily",
+            "lileep",
+            "ogerpon-cornerstone-mask"
         ],
         [
-            "banette-mega",
-            "sableye-mega",
-            "gengar-mega"
+            "volcarona",
+            "genesect",
+            "vikavolt"
         ],
         [
-            "alakazam-mega",
-            "manectric-mega",
-            "blastoise-mega",
-            "absol-mega",
-            "mewtwo-mega-y",
-            "glalie-mega",
-            "kangaskhan-mega",
-            "aggron-mega",
-            "banette-mega"
-        ],
-        [
-            "camerupt-mega",
             "charizard-mega-y",
+            "golbat",
+            "moltres",
+            "zapdos",
+            "pidgey",
+            "doduo",
+            "pidgeot-mega",
+            "mew",
+            "pidgeotto",
+            "farfetchd",
+            "pidgeot",
+            "dodrio",
             "charizard-mega-x",
-            "blaziken-mega",
-            "houndoom-mega"
+            "articuno",
+            "spearow",
+            "charizard",
+            "zubat",
+            "dragonite",
+            "aerodactyl",
+            "aerodactyl-mega",
+            "fearow"
+        ],
+        [
+            "tropius",
+            "flapple"
         ]
     ],
     "columnCategories": [
-        "type-ghost",
-        "mono-type",
-        "type-fire"
+        "type-bug",
+        "region-kanto",
+        "type-grass"
     ],
     "rowCategories": [
-        "knows-stomp",
         "type-ice",
-        "mega"
+        "type-rock",
+        "knows-fly"
     ]
 }
