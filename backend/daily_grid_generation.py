@@ -1,112 +1,38 @@
-import httpx, random, copy, json, schedule, time, threading
+import random, copy, json, schedule, time, threading
 
-all_pokemon_response = httpx.get('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
-all_pokemon_text = all_pokemon_response.text
+category_data: dict = json.load(open("category_data.json", "r"))
 
-pokemon_types = [
-    "bug",
-    "dark",
-    "dragon",
-    "electric",
-    "fairy",
-    "fighting",
-    "fire",
-    "flying",
-    "ghost",
-    "grass",
-    "ground",
-    "ice",
-    "normal",
-    "poison",
-    "psychic",
-    "rock",
-    "steel",
-    "water"
-]
+for key, value in category_data.items():
+    category_data[key] = set(value)
 
-pokemon_regions = [
-    "kanto",
-    "johto",
-    "hoenn",
-    "sinnoh",
-    "unova",
-    "kalos",
-    "alola",
-    "galar",
-    "paldea"
-]
+categories = list(category_data.keys())
 
-region_to_generation = { k:v for (k,v) in zip(pokemon_regions, range(1, 10))}  
+def generate_categories(unused_categories: list):
+    selected_categories = []
+    for _ in range(3):
+        selected_categories.append(unused_categories.pop(random.randrange(len(unused_categories))))
+    return selected_categories
 
-categories = [
-    "type",
-    "region"
-]
-
-def get_pokemon_of_type(type) -> set:
-    response = httpx.get(f'https://pokeapi.co/api/v2/type/{type}').json()["pokemon"]
-    return {entry['pokemon']['name'] for entry in response}
-
-def get_pokemon_from_region(region) -> set:
-    generation = region_to_generation[region]
-    response = httpx.get(f'https://pokeapi.co/api/v2/generation/{generation}').json()["pokemon_species"]
-    return {entry['name'] for entry in response}
-
-def get_query_type(category):
-    if category == "type":
-        return get_pokemon_of_type
-    if category == "region":
-        return get_pokemon_from_region
-
-
-def generate_categories():
+def get_results(categories: list):
     return [
-        random.choice(categories)
-        for _ in range(3)
-    ]
-
-def generate_contents(categories, unused_types, unused_regions):
-    contents = []
-    for category in categories:
-        if category == "type":
-            contents.append(unused_types.pop(random.randrange(len(unused_types))))
-        if category == "region":
-            contents.append(unused_regions.pop(random.randrange(len(unused_regions))))
-    return contents
-
-def generate_criteria(categories, contents):
-    return [
-        {
-            "category": categories[i],
-            "content": contents[i]
-        }
-        for i in range(3)
-    ]
-
-def get_results(criteria):
-    return [
-        get_query_type(entry["category"])(entry["content"])
-        for entry in criteria
+        category_data[category]
+        for category in categories
     ]
 
 def generate_new_grid():
     retries = 0
     
     while True:
-        unused_types = copy.deepcopy(pokemon_types)
-        unused_regions = copy.deepcopy(pokemon_regions)
+        unused_categories = copy.deepcopy(categories)
         
-        column_categories = generate_categories()
-        column_contents = generate_contents(column_categories, unused_types, unused_regions)
-        column_criteria = generate_criteria(column_categories, column_contents)
-        column_results = get_results(column_criteria)
+        column_categories = generate_categories(unused_categories)
+        column_results = get_results(column_categories)
         
-        row_categories = generate_categories()
-        row_contents = generate_contents(row_categories, unused_types, unused_regions)
-        row_criteria = generate_criteria(row_categories, row_contents)
-        row_results = get_results(row_criteria)
+        row_categories = generate_categories(unused_categories)
+        row_results = get_results(row_categories)
         
         valid_pokemon = [
+            # Finds the intersection between the two sets
             list(column_result & row_result)
             for row_result in row_results
             for column_result in column_results
@@ -116,8 +42,8 @@ def generate_new_grid():
         if not any(len(sublist) == 0 for sublist in valid_pokemon):
             return {
                 "validPokemon": valid_pokemon,
-                "columnCriteria": column_criteria,
-                "rowCriteria": row_criteria
+                "columnCategories": column_categories,
+                "rowCategories": row_categories
             }
         else:
             retries += 1
@@ -144,7 +70,7 @@ daily_grid = load_daily_grid_json()
 # daily_grid = generate_new_grid() # for development
 
 # Schedules the grid data to update every new day
-schedule.every().day.at("00:00").do(update_daily_grid)
+schedule.every().day.do(update_daily_grid)
 
 def check_for_scheduled_tasks():
     while True:

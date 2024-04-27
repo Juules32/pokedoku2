@@ -1,12 +1,31 @@
 <script setup lang="ts">
 import TypeIcon from './TypeIcon.vue';
 defineProps<{
-    criteriaCategory: string
-    criteriaContent: string
+    category: string
 }>()
 
-function parseCriteria(criteriaCategory: string, criteriaContent: string) {
-    return `${criteriaCategory}: ${criteriaContent}`
+function parseCategory(category: string) {
+
+    const special_categories = ["mono-type", "dual-type", "ultra-beast"]
+
+    if (special_categories.indexOf(category) > -1) {
+        return category.replace("-", " ")
+    }
+
+    const split_category = category.split("-")
+    if (split_category.length > 1) {
+        
+        return `${split_category[0]}: ${split_category[1]}`
+    }
+    return category
+}
+
+function isType(category: string) {
+    return category.startsWith("type-")
+}
+
+function getType(category: string) {
+    return category.split("-")[1]
 }
 
 </script>
@@ -14,7 +33,7 @@ function parseCriteria(criteriaCategory: string, criteriaContent: string) {
 <template>
     <!-- make this prettier -->    
     <div class="flex justify-center items-center">
-        <TypeIcon v-if="criteriaCategory == 'type'" :type="criteriaContent" />
-        <a v-else class="capitalize text-xl">{{ parseCriteria(criteriaCategory, criteriaContent) }}</a>
+        <TypeIcon v-if="isType(category)" :type="getType(category)" />
+        <a v-else class="capitalize text-xl">{{ parseCategory(category) }}</a>
     </div>
 </template>

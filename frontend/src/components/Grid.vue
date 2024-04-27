@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import Tile from './Tile.vue'
 import Search from './Search.vue';
-import { pokemonNames, searchIndex, columnCriteria, rowCriteria } from '../utils/userState';
+import { pokemonNames, searchIndex, columnCategories, rowCategories } from '../utils/userState';
 import Criteria from './Criteria.vue';
 import { useWindowSize } from 'vue-window-size';
 
@@ -25,13 +25,13 @@ function gridIndexToCriteriaIndex(index: number) {
     return validRowOrColumnIndeces.indexOf(index)
 }
 
-function getCriteria(index: number) {
-    const criteriaIndex = gridIndexToCriteriaIndex(index)
-    if (criteriaIndex >= 3) {
-        return rowCriteria[criteriaIndex % 3]
+function getCategory(index: number) {
+    const categoryIndex = gridIndexToCriteriaIndex(index)
+    if (categoryIndex >= 3) {
+        return rowCategories[categoryIndex % 3]
     }
     else {
-        return columnCriteria[criteriaIndex]
+        return columnCategories[categoryIndex]
     }
 }
 
@@ -56,8 +56,7 @@ function getTileWidth() {
                 <Criteria 
                     v-else-if="gridIndexToCriteriaIndex(index) >= 0"
                     :class="getTileWidth()" 
-                    :criteriaCategory="getCriteria(index)['category']"
-                    :criteriaContent="getCriteria(index)['content']"
+                    :category="getCategory(index)"
                 />
                 <!-- Empty box to align remaining cells properly -->
                 <div v-else></div>

@@ -1,131 +1,118 @@
 {
     "validPokemon": [
         [
+            "calyrex-shadow",
+            "spectrier"
+        ],
+        [
+            "regirock",
+            "tsareena",
             "regice",
-            "sealeo",
-            "glalie",
-            "walrein",
-            "snorunt",
-            "spheal"
+            "wooloo",
+            "kingler",
+            "cufant",
+            "glastrier",
+            "rampardos",
+            "lickilicky",
+            "mudbray",
+            "kangaskhan",
+            "lickitung",
+            "blitzle",
+            "stonjourner",
+            "registeel",
+            "mudsdale",
+            "steenee",
+            "kangaskhan-mega",
+            "ponyta",
+            "cranidos",
+            "krabby",
+            "copperajah",
+            "miltank",
+            "entei",
+            "regigigas",
+            "mudkip",
+            "bouffalant",
+            "slowpoke-galar",
+            "zebstrika",
+            "loudred",
+            "ponyta-galar",
+            "spectrier",
+            "tauros",
+            "exploud",
+            "rapidash",
+            "stantler",
+            "whismur"
         ],
         [
-            "kyogre",
-            "huntail",
-            "wailord",
-            "wingull",
-            "whiscash",
-            "relicanth",
-            "luvdisc",
-            "sealeo",
-            "gorebyss",
-            "spheal",
-            "clamperl",
-            "pelipper",
-            "feebas",
-            "corphish",
-            "crawdaunt",
-            "lombre",
-            "sharpedo",
-            "walrein",
-            "marshtomp",
-            "ludicolo",
-            "lotad",
-            "wailmer",
-            "barboach",
-            "carvanha",
-            "surskit",
-            "swampert",
-            "milotic",
-            "mudkip"
-        ],
-        [
-            "combusken",
-            "camerupt",
-            "torkoal",
-            "blaziken",
+            "rapidash",
+            "entei",
+            "ponyta",
+            "volcanion",
             "numel",
-            "torchic"
+            "gouging-fire"
         ],
         [
-            "avalugg",
+            "froslass"
+        ],
+        [
+            "darmanitan-galar-standard",
+            "regice",
+            "glastrier",
+            "glaceon",
+            "cetitan",
+            "vanillite",
+            "beartic",
             "bergmite",
-            "amaura",
-            "aurorus"
+            "cetoddle",
+            "eiscue-ice",
+            "snorunt",
+            "glalie",
+            "vanilluxe",
+            "cubchoo",
+            "avalugg",
+            "glalie-mega",
+            "castform-snowy",
+            "vulpix-alola",
+            "cryogonal",
+            "vanillish",
+            "eiscue-noice",
+            "darumaka-galar"
         ],
         [
-            "greninja",
-            "clawitzer",
-            "clauncher",
-            "barbaracle",
-            "froakie",
-            "binacle",
-            "frogadier",
-            "skrelp",
-            "volcanion"
+            "darmanitan-galar-zen"
         ],
         [
-            "delphox",
-            "talonflame",
-            "pyroar",
-            "litleo",
-            "fletchinder",
-            "braixen",
-            "fennekin",
-            "volcanion"
+            "banette-mega",
+            "sableye-mega",
+            "gengar-mega"
         ],
         [
-            "crabominable"
+            "alakazam-mega",
+            "manectric-mega",
+            "blastoise-mega",
+            "absol-mega",
+            "mewtwo-mega-y",
+            "glalie-mega",
+            "kangaskhan-mega",
+            "aggron-mega",
+            "banette-mega"
         ],
         [
-            "popplio",
-            "araquanid",
-            "primarina",
-            "wimpod",
-            "tapu-fini",
-            "golisopod",
-            "toxapex",
-            "pyukumuku",
-            "brionne",
-            "mareanie",
-            "bruxish",
-            "dewpider"
-        ],
-        [
-            "blacephalon",
-            "incineroar",
-            "litten",
-            "salandit",
-            "turtonator",
-            "salazzle",
-            "torracat"
+            "camerupt-mega",
+            "charizard-mega-y",
+            "charizard-mega-x",
+            "blaziken-mega",
+            "houndoom-mega"
         ]
     ],
-    "columnCriteria": [
-        {
-            "category": "type",
-            "content": "ice"
-        },
-        {
-            "category": "type",
-            "content": "water"
-        },
-        {
-            "category": "type",
-            "content": "fire"
-        }
+    "columnCategories": [
+        "type-ghost",
+        "mono-type",
+        "type-fire"
     ],
-    "rowCriteria": [
-        {
-            "category": "region",
-            "content": "hoenn"
-        },
-        {
-            "category": "region",
-            "content": "kalos"
-        },
-        {
-            "category": "region",
-            "content": "alola"
-        }
+    "rowCategories": [
+        "knows-stomp",
+        "type-ice",
+        "mega"
     ]
 }

@@ -15,7 +15,6 @@ RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 COPY ./*.py /code/
 COPY ./*.json /code/
 
-
 # Will be run once the container is started from the image
 # Runs from the WORKDIR directory
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
