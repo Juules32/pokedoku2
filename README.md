@@ -5,6 +5,9 @@ A big help for this project is the publicly available [pokeAPI](https://pokeapi.
 
 The frontend is written in Vite + Vue + TypeScript + Tailwind, and the backend is written in Python + FastAPI.
 
+# Visit
+The app should be running [here](https://juules32.github.io/pokedoku2/), however, the backend is probably not active, meaning you won't be able to play. 😿
+
 # How to run locally
 ## Backend
 - Start a new terminal instance and navigate to the `backend` folder.
