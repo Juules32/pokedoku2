@@ -15,6 +15,12 @@ git commit -m "Deploy To Heroku"
 git remote add heroku https://git.heroku.com/pokedoku2-backend.git
 git push heroku main
 ```
+If you want to deploy new changes, go to `backend` and run:
+```
+git add .
+git commit -m "Message"
+git push heroku main
+```
 
 # Frontend
 - Copy `.env` and rename it to `.env.production`
@@ -25,5 +31,6 @@ git push heroku main
 npm run build
 npm run deploy
 ```
+If you want to deploy new changes, simply run the above commands again.
 
 Now, you can go to `https://<github-username>.github.io/pokedoku2/` and see your website.
