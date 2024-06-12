@@ -21,7 +21,7 @@ function getRandomBackgroundPath() {
 		"victory-road",
 		"warehouse"
 	]
-	return `/assets/backgrounds/${backgroundNames[Math.floor(Math.random() * backgroundNames.length)]}.png`
+	return `${import.meta.env.BASE_URL}assets/backgrounds/${backgroundNames[Math.floor(Math.random() * backgroundNames.length)]}.png`
 }
 
 </script>

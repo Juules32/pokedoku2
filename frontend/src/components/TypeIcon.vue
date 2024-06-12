@@ -2,10 +2,12 @@
 defineProps<{
     type: string
 }>()
+
+const BASE_URL = import.meta.env.BASE_URL
 </script>
 
 <template>
-    <img class="w-16" :src="`/assets/types/type-${type}.png`" :alt="type" />
+    <img class="w-16" :src="`${BASE_URL}assets/types/type-${type}.png`" :alt="type" />
 </template>
 
 <style scoped>

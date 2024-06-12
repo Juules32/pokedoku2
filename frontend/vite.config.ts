@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
-// https://vitejs.dev/config/
 export default defineConfig({
+  base: '/pokedoku2/',
   plugins: [vue()],
   build: {
     target: "ES2022"
