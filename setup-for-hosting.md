@@ -1,31 +1,18 @@
 # General
-These are just notes for myself if I ever want to host the application.
-NOTE: The frontend is free to host on github, however, the backend will cost some amount of money to host on heroku.
+These are just notes for myself if I ever want to host the application (again).
 
-# Backend
-- Download Heroku CLI
+# Backend (Vercel)
 - Navigate to `backend`
-- Run the following commands:
-```
-heroku login
-heroku create pokedoku2-backend
-git init
-git add .
-git commit -m "Deploy To Heroku"
-git remote add heroku https://git.heroku.com/pokedoku2-backend.git
-git push heroku main
-```
-If you want to deploy new changes, go to `backend` and run:
-```
-git add .
-git commit -m "Message"
-git push heroku main
-```
+- Download vercel cli with: `npm i -g vercel`
+- Login: `vercel login`
+- Load the project: `vercel .`
+- When asked to link to existing project, say yes and type the name of the project (currently `pokedoku2-backend`)
+- To deploy to prod manually: `vercel --prod`, or push to main
 
-# Frontend
+# Frontend (GitHub pages)
+- Navigate to `frontend`
 - Copy `.env` and rename it to `.env.production`
-- Under `VITE_BACKEND_URL`, fill in `https://pokedoku2-backend-<uid>.herokuapp.com/`
-> **_NOTE:_** Remember that heroku will generate a custom uid for the domain name.
+- Under `VITE_BACKEND_URL`, fill in `https://<name_of_host>/`
 - Run the following commands:
 ```
 npm run build
