@@ -5,3 +5,4 @@ __pycache__
 TO-DO.*
 TODO.*
 dist/
+.vercel
