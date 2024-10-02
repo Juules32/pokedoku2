@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "axios": "^1.6.8",
+    "axios": "^1.7.4",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0",
     "vue-window-size": "^2.0.0"
