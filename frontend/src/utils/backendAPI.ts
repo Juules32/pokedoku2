@@ -2,7 +2,7 @@ import axios from "axios";
 
 export async function getDailyData() {
     try {
-        console.log("pee")
+        console.log(`${import.meta.env.VITE_BACKEND_URL}dailyData`)
         const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}dailyData`);
         if (!response.data) {
             throw new Error('Response data not found');
