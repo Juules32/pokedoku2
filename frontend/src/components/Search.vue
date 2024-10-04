@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, watch } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import { getSearchData } from '../utils/pokeAPI';
 import SearchResult from './SearchResult.vue';
 
@@ -10,6 +10,10 @@ watch(search, async newValue => {
     filteredPokemon.value = await getSearchData(newValue)
 });
 
+onMounted(() => {
+    document.getElementById('searchInput').focus()
+})
+
 </script>
 
 <template>
@@ -17,18 +21,18 @@ watch(search, async newValue => {
         id="background" 
         class="fixed inset-0 flex justify-center transition-colors bg-black/20"
     >
-        <div class="w-[500px] mt-32 h-fit	">
+        <div class="w-[500px] mt-32 h-fit">
 
-            <div class="bg-red-400 h-16 flex border-2 border-b-0 border-black justify-center items-center">
+            <div class="bg-red-400 h-16 flex border-2 border-b-0 border-black justify-center items-center rounded-t-lg">
                 <input 
-                    autofocus 
+                    id="searchInput" 
                     class="p-2 w-72 border-2 border-black" 
                     type="text" 
                     v-model="search"
                     placeholder="Search for a pokemon..."
                 >
             </div>
-            <ul class="divide-y divide-dashed max-h-96 overflow-y-auto border-2 border-black bg-white">
+            <ul class="divide-y divide-dashed h-96 overflow-y-auto border-2 border-black bg-white rounded-b-lg">
                 <li v-for="pokemon in filteredPokemon" class="hover:bg-gray-200">
                     <SearchResult 
                         :spriteUrl="pokemon.spriteUrl" 

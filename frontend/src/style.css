@@ -12,8 +12,8 @@
   @font-face {
     font-family: "Undertale Font";
     src: 
-      url('../public/fonts/determinationmonoweb-webfont.woff') format('woff'),
-      url('../public/fonts/determinationmonoweb-webfont.woff2') format('woff2');
+      url('/fonts/determinationmonoweb-webfont.woff') format('woff'),
+      url('/fonts/determinationmonoweb-webfont.woff2') format('woff2');
   }
 }
 
