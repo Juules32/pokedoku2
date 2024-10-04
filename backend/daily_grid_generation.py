@@ -1,4 +1,4 @@
-import random, copy, json, schedule, time, threading
+import random, copy, json
 
 criteria_data: dict = json.load(open("criteria_data.json", "r"))
 
@@ -55,29 +55,16 @@ def load_daily_grid_json():
     print("Loaded daily grid data!")
     return loaded_json
 
-def update_daily_grid():
+def update_daily_grid(save_to_file: bool = True):
     global daily_grid
 
     new_grid = generate_new_grid()
-    with open("daily_grid.json", "w") as daily_grid_json:
-        json.dump(new_grid, daily_grid_json, indent=4)
+
+    if save_to_file:
+        with open("daily_grid.json", "w") as daily_grid_json:
+            json.dump(new_grid, daily_grid_json, indent=4)
         
     daily_grid.update(new_grid)
     print("Updated daily grid data!")
 
 daily_grid = load_daily_grid_json()
-# update_daily_grid() # for development
-# daily_grid = generate_new_grid() # for development
-
-# Schedules the grid data to update every new day
-schedule.every().day.do(update_daily_grid)
-
-def check_for_scheduled_tasks():
-    while True:
-        print("Checking for scheduled events...")
-        schedule.run_pending()
-        time.sleep(100)
-
-scheduled_thread = threading.Thread(target=check_for_scheduled_tasks)
-scheduled_thread.daemon = True
-scheduled_thread.start()

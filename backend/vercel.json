@@ -16,5 +16,11 @@
       "main": false,
       "gh-pages": false
     }
-  }
+  },
+  "crons": [
+    {
+      "path": "/cron/dailyData/generate",
+      "schedule": "0 22 * * *"
+    }
+  ]
 }

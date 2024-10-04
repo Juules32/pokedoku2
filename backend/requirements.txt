@@ -4,4 +4,3 @@ pytest
 httpx
 python-multipart
 python-dotenv
-schedule

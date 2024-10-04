@@ -1,7 +1,5 @@
 node_modules
 __pycache__
-.env.development
-.env.production
 TO-DO.*
 TODO.*
 dist/
