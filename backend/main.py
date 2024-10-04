@@ -7,8 +7,6 @@ from daily_grid_generation import daily_grid, update_daily_grid
 
 load_dotenv()
 
-FRONTEND_HOST = os.getenv("FRONTEND_HOST")
-
 app = FastAPI()
 
 app.add_middleware(
