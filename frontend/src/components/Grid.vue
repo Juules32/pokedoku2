@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import Tile from './Tile.vue'
 import Search from './Search.vue';
-import { pokemonNames, searchIndex, columnCategories, rowCategories } from '../utils/userState';
-import Criteria from './Criteria.vue';
+import { pokemonNames, searchIndex, columnCriteria, rowCriteria } from '../utils/userState';
+import Criterion from './Criterion.vue';
 import { useWindowSize } from 'vue-window-size';
 
 function handleShowSearch(index: number) {
@@ -20,18 +20,18 @@ function gridIndexToPokeIndex(index: number) {
     return validIndeces.indexOf(index)
 }
 
-function gridIndexToCriteriaIndex(index: number) {
+function gridIndexToCriterionIndex(index: number) {
     const validRowOrColumnIndeces = [1, 2, 3, 5, 10, 15]
     return validRowOrColumnIndeces.indexOf(index)
 }
 
-function getCategory(index: number) {
-    const categoryIndex = gridIndexToCriteriaIndex(index)
-    if (categoryIndex >= 3) {
-        return rowCategories[categoryIndex % 3]
+function getCriterion(index: number) {
+    const criterionIndex = gridIndexToCriterionIndex(index)
+    if (criterionIndex >= 3) {
+        return rowCriteria[criterionIndex % 3]
     }
     else {
-        return columnCategories[categoryIndex]
+        return columnCriteria[criterionIndex]
     }
 }
 
@@ -53,10 +53,10 @@ function getTileWidth() {
                     :name="pokemonNames[gridIndexToPokeIndex(index)]" 
                     @click="handleShowSearch(gridIndexToPokeIndex(index))"
                 />
-                <Criteria 
-                    v-else-if="gridIndexToCriteriaIndex(index) >= 0"
+                <Criterion 
+                    v-else-if="gridIndexToCriterionIndex(index) >= 0"
                     :class="getTileWidth()" 
-                    :category="getCategory(index)"
+                    :criterion="getCriterion(index)"
                 />
                 <!-- Empty box to align remaining cells properly -->
                 <div v-else></div>

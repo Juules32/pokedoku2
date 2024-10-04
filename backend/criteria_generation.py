@@ -48,33 +48,33 @@ def find_region(name, species_generation):
     # If no exceptions, return the corresponding region
     return generation_to_region[species_generation]
 
-categories = defaultdict(lambda : [])
+criteria = defaultdict(lambda : [])
 
 popular_moves = ["stomp", "fly", "bite"]
 
-def add(category, name):
-    categories[category].append(name)
+def add(criterion, name):
+    criteria[criterion].append(name)
 
-def add_predefined_categories():
-    categories["fossil"] = [
+def add_predefined_criteria():
+    criteria["fossil"] = [
         "omanyte", "omastar", "kabuto", "kabutops", "aerodactyl", "aerodactyl-mega", "lileep", "cradily", "anorith", "armaldo", "cranidos", "rampardos", "shieldon", "bastiodon", "tirtouga", "carracosta", "archen", "archeops", "genesect", "tyrunt", "tyrantrum", "amaura", "aurorus", "dracozolt", "arctozolt", "dracovish", "arctovish"
     ]
-    categories["starter"] = [
+    criteria["starter"] = [
         "bulbasaur", "charmander", "squirtle", "chikorita", "cyndaquil", "totodile", "treecko", "torchic", "mudkip", "turtwig", "chimchar", "piplup", "snivy", "tepig", "oshawott", "chespin", "fennekin", "froakie", "rowlet", "litten", "popplio", "grookey", "scorbunny", "sobble", "sprigatito", "fuecoco", "quaxly", "pikachu", "eevee"
     ]
-    categories["ultra-beast"] = [
+    criteria["ultra-beast"] = [
         "nihilego", "buzzwole", "pheromosa", "xurkitree", "celesteela", "kartana", "guzzlord", "necrozma", "poipole", "naganadel", "stakataka", "blacephalon"
     ]
-    categories["paradox"] = [
+    criteria["paradox"] = [
         "great-tusk", "scream-tail", "brute-bonnet", "flutter-mane", "slither-wing", "sandy-shocks", "roaring-moon", "koraidon", "walking-wake", "raging-bolt", "gouging-fire", "iron-treads", "iron-bundle", "iron-hands", "iron-jugulis", "iron-moth", "iron-thorns", "iron-valiant", "miraidon", "iron-leaves", "iron-crown", "iron-boulder"
     ]
     
-add_predefined_categories()
+add_predefined_criteria()
 
 limit = 10000
 offset = 0
 
-def save_category_data_to_json():
+def save_criteria_data_to_json():
     results = httpx.get(f'https://pokeapi.co/api/v2/pokemon?limit={limit}&offset={offset}').json()["results"]
     for result in results:
         name = result["name"]
@@ -124,10 +124,10 @@ def save_category_data_to_json():
         species_generation = species_data["generation"]["name"]
         add(f'region-{find_region(name, species_generation)}', name)
         
-    # Dumps categories into one big json file
-    with open("category_data.json", "w") as category_data_json:
-        json.dump(categories, category_data_json, indent=4)
-    print("Queried and stored all category information")
+    # Dumps criteria into one big json file
+    with open("criteria_data.json", "w") as criteria_data_json:
+        json.dump(criteria, criteria_data_json, indent=4)
+    print("Queried and stored all criteria information")
 
-# Uncomment this to update category data (takes a while)
-# save_category_data_to_json()
+# Uncomment this to update criteria data (takes a while)
+# save_criteria_data_to_json()

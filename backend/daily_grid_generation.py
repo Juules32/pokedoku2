@@ -1,35 +1,35 @@
 import random, copy, json, schedule, time, threading
 
-category_data: dict = json.load(open("category_data.json", "r"))
+criteria_data: dict = json.load(open("criteria_data.json", "r"))
 
-for key, value in category_data.items():
-    category_data[key] = set(value)
+for key, value in criteria_data.items():
+    criteria_data[key] = set(value)
 
-categories = list(category_data.keys())
+criteria = list(criteria_data.keys())
 
-def generate_categories(unused_categories: list):
-    selected_categories = []
+def generate_criteria(unused_criteria: list):
+    selected_criteria = []
     for _ in range(3):
-        selected_categories.append(unused_categories.pop(random.randrange(len(unused_categories))))
-    return selected_categories
+        selected_criteria.append(unused_criteria.pop(random.randrange(len(unused_criteria))))
+    return selected_criteria
 
-def get_results(categories: list):
+def get_results(criteria: list):
     return [
-        category_data[category]
-        for category in categories
+        criteria_data[criterion]
+        for criterion in criteria
     ]
 
 def generate_new_grid():
     retries = 0
     
     while True:
-        unused_categories = copy.deepcopy(categories)
+        unused_criteria = copy.deepcopy(criteria)
         
-        column_categories = generate_categories(unused_categories)
-        column_results = get_results(column_categories)
+        column_criteria = generate_criteria(unused_criteria)
+        column_results = get_results(column_criteria)
         
-        row_categories = generate_categories(unused_categories)
-        row_results = get_results(row_categories)
+        row_criteria = generate_criteria(unused_criteria)
+        row_results = get_results(row_criteria)
         
         valid_pokemon = [
             # Finds the intersection between the two sets
@@ -42,12 +42,12 @@ def generate_new_grid():
         if not any(len(sublist) == 0 for sublist in valid_pokemon):
             return {
                 "validPokemon": valid_pokemon,
-                "columnCategories": column_categories,
-                "rowCategories": row_categories
+                "columnCriteria": column_criteria,
+                "rowCriteria": row_criteria
             }
         else:
             retries += 1
-            print(f"Combination of categories contained empty result. Retries: ${retries}")
+            print(f"Combination of criteria contained empty result. Retries: ${retries}")
 
 def load_daily_grid_json():
     with open("daily_grid.json", "r") as daily_grid_json:

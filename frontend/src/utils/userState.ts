@@ -4,15 +4,15 @@ import { getDailyData } from './backendAPI'
 
 interface DailyData {
     validPokemon: string[][]
-    columnCategories: string[]
-    rowCategories: string[]
+    columnCriteria: string[]
+    rowCriteria: string[]
 }
 
 
 let templateData: DailyData = {
     validPokemon: [[], [], [], [], [], [], [], [], []],
-    columnCategories: ["", "", ""],
-    rowCategories: ["", "", ""],
+    columnCriteria: ["", "", ""],
+    rowCriteria: ["", "", ""],
 }
 
 export const dailyData = await getDailyData() || templateData
@@ -23,9 +23,9 @@ export const searchIndex = ref(-1)
 
 export const validPokemon = dailyData.validPokemon
 
-export const rowCategories = dailyData.rowCategories
+export const rowCriteria = dailyData.rowCriteria
 
-export const columnCategories = dailyData.columnCategories
+export const columnCriteria = dailyData.columnCriteria
 
 export function isNameLegal(name: string) {
     if (

@@ -1,31 +1,31 @@
 <script setup lang="ts">
 import TypeIcon from './TypeIcon.vue';
 defineProps<{
-    category: string
+    criterion: string
 }>()
 
-function parseCategory(category: string) {
+function parseCriterion(criterion: string) {
 
-    const special_categories = ["mono-type", "dual-type", "ultra-beast"]
+    const special_criteria = ["mono-type", "dual-type", "ultra-beast"]
 
-    if (special_categories.indexOf(category) > -1) {
-        return category.replace("-", " ")
+    if (special_criteria.includes(criterion)) {
+        return criterion.replace("-", " ")
     }
 
-    const split_category = category.split("-")
-    if (split_category.length > 1) {
+    const split_criterion = criterion.split("-")
+    if (split_criterion.length > 1) {
         
-        return `${split_category[0]}: ${split_category[1]}`
+        return `${split_criterion[0]}: ${split_criterion[1]}`
     }
-    return category
+    return criterion
 }
 
-function isType(category: string) {
-    return category.startsWith("type-")
+function isType(criterion: string) {
+    return criterion.startsWith("type-")
 }
 
-function getType(category: string) {
-    return category.split("-")[1]
+function getType(criterion: string) {
+    return criterion.split("-")[1]
 }
 
 </script>
@@ -33,7 +33,7 @@ function getType(category: string) {
 <template>
     <!-- make this prettier -->    
     <div class="flex justify-center items-center">
-        <TypeIcon v-if="isType(category)" :type="getType(category)" />
-        <a v-else class="capitalize text-xl">{{ parseCategory(category) }}</a>
+        <TypeIcon v-if="isType(criterion)" :type="getType(criterion)" />
+        <a v-else class="capitalize text-xl">{{ parseCriterion(criterion) }}</a>
     </div>
 </template>

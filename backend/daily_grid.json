@@ -77,12 +77,12 @@
             "flapple"
         ]
     ],
-    "columnCategories": [
+    "columnCriteria": [
         "type-bug",
         "region-kanto",
         "type-grass"
     ],
-    "rowCategories": [
+    "rowCriteria": [
         "type-ice",
         "type-rock",
         "knows-fly"

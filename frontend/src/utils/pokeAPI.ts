@@ -25,12 +25,11 @@ export async function getSearchData(search: string) {
             throw new Error('Response data not found');
         }
         const searchLowerCase = search.toLowerCase()
-        const filteredResponse =
-            response.data.results
-                .filter((pokemon: Pokemon) => isNameLegal(pokemon.name))
-                .filter((pokemon: Pokemon) => pokemon.name.includes(searchLowerCase))
-                .sort((a: Pokemon, b: Pokemon) => customSort(a, b, searchLowerCase))
-                .slice(0, 10)
+        const filteredResponse = response.data.results
+            .filter((pokemon: Pokemon) => isNameLegal(pokemon.name))
+            .filter((pokemon: Pokemon) => pokemon.name.includes(searchLowerCase))
+            .sort((a: Pokemon, b: Pokemon) => customSort(a, b, searchLowerCase))
+            .slice(0, 10)
 
         const spriteUrls = await Promise.all(filteredResponse.map(async (pokemon: Pokemon) => {
             const spriteUrl = await getPokemonSprite(pokemon.url);
