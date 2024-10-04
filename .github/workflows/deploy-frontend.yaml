@@ -26,8 +26,8 @@ jobs:
         run: |
           cd frontend
           npm install
-          npm run build
-
+          vue-tsc && vite build
+          
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
