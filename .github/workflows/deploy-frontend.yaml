@@ -7,6 +7,7 @@ on:
   push:
     tags:
       - v*
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
@@ -22,6 +23,8 @@ jobs:
           node-version: '18'
 
       - name: Install, Build & Deploy
-        run: npm install
-        run: npm run build
-        run: npm run deploy
+        run: |
+          cd frontend
+          npm install
+          npm run build
+          npm run deploy
