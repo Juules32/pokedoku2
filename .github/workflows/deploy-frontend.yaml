@@ -22,9 +22,14 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install, Build & Deploy
+      - name: Install & Build
         run: |
           cd frontend
           npm install
           npm run build
-          npm run deploy
+
+      - name: Deploy to GitHub Pages 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: frontend/dist
