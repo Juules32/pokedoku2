@@ -5,3 +5,4 @@ TODO.*
 dist/
 .vercel
 .vscode
+backend/.gitignore
