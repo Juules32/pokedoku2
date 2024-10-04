@@ -40,6 +40,7 @@ function getRandomBackgroundPath() {
 		</div>
 	</main>
 </template>
+
 <style scoped>
 img {
     image-rendering: pixelated

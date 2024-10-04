@@ -31,7 +31,6 @@ function getType(criterion: string) {
 </script>
 
 <template>
-    <!-- make this prettier -->    
     <div class="flex justify-center items-center">
         <TypeIcon v-if="isType(criterion)" :type="getType(criterion)" />
         <a v-else class="capitalize text-xl">{{ parseCriterion(criterion) }}</a>
