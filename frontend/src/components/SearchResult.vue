@@ -17,6 +17,7 @@ function handleIsValidGuess(pokemonName: string) {
     // Add logic for determining if it was a valid guess    
     searchIndex.value = -1
 }
+
 </script>
 
 <template>
