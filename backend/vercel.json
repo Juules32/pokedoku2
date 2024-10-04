@@ -11,11 +11,8 @@
       "dest": "main.py"
     }
   ],
-  "git": {
-    "deploymentEnabled": {
-      "main": false,
-      "gh-pages": false
-    }
+  "github": {
+    "enable": false
   },
   "crons": [
     {
