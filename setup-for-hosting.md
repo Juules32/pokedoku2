@@ -11,11 +11,13 @@ In the `root` folder:
 
 # Frontend (GitHub pages)
 - Navigate to `frontend`
-- Copy `.env` and rename it to `.env.production`
-- Under `VITE_BACKEND_URL`, fill in `https://<name_of_host>/`
 - To deploy to prod manually:
 ```
 npm run build
 npm run deploy
 ```
 Now, you can go to `https://<github-username>.github.io/pokedoku2/` and see your website.
+
+# Workflows
+Each time a new tag is pushed to main, workflows are triggered
+that deploy both the frontend and backend.
