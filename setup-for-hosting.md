@@ -2,7 +2,7 @@
 These are just notes for myself if I ever want to host the application (again).
 
 # Backend (Vercel)
-- Navigate to `backend`
+In the `root` folder:
 - Download vercel cli with: `npm i -g vercel`
 - Login: `vercel login`
 - Load the project: `vercel .`
