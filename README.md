@@ -10,16 +10,23 @@ The app should be running [here](https://juules32.github.io/pokedoku2/)!
 
 # How to run locally
 ## Backend
-- Navigate to the `backend` folder.
+- Navigate to the `backend` folder
 - Run the following commands:
 ```
 pip install -r requirements.txt
 uvicorn main:app --reload --port 80
 ```
 
+### Database
+- Install the latest version of PostgreSQL on your machine
+- Create a database
+- Copy `.env.example` and rename it to `.env`
+- Paste in your connection string in the form: 
+`postgresql://username:password@host:port/database`
+
 ## Frontend
-- Navigate to the `frontend` folder.
-- Copy the file: `.env.example`, and rename it to `.env.development`.
+- Navigate to the `frontend` folder
+- Copy the file: `.env.example`, and rename it to `.env.development`
 - Under `VITE_BACKEND_URL`, fill in `http://localhost/`
 - Run the following commands:
 ```
