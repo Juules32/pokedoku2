@@ -4,4 +4,4 @@ pytest
 httpx
 python-multipart
 python-dotenv
-psycopg2
+psycopg[binary]
