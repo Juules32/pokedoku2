@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 env:
-  VITE_BACKEND_URL: https://pokedoku2-backend.vercel.app/
+  VITE_BACKEND_URL: https://pokedoku2-backend.vercel.app
 
 jobs:
   build-and-deploy:
