@@ -129,5 +129,6 @@ def save_criteria_data_to_json():
         json.dump(criteria, criteria_data_json, indent=4)
     print("Queried and stored all criteria information")
 
-# Uncomment this to update criteria data (takes a while)
-# save_criteria_data_to_json()
+# Running this script generates and saves all criteria (takes a while)
+if __name__ == "__main__":
+    save_criteria_data_to_json()
