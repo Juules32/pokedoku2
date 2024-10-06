@@ -11,9 +11,6 @@
       "dest": "main.py"
     }
   ],
-  "github": {
-    "enable": false
-  },
   "crons": [
     {
       "path": "/cron/generateTomorrowsPuzzle",
