@@ -39,10 +39,10 @@ class Database:
             self.connection.rollback()
 
     def create_puzzle_table(self):
-        self.drop_table(table_name="puzzle")
+        self.drop_table(table_name="pokedoku2puzzle")
 
         query = """
-            CREATE TABLE puzzle (
+            CREATE TABLE pokedoku2puzzle (
                 date DATE PRIMARY KEY,
                 data JSON NOT NULL
             );
@@ -61,7 +61,7 @@ class Database:
     def set_puzzle(self, date: str, data: dict) -> None:
         # Insert date and data, overwriting old data if it already exists
         query = """
-            INSERT INTO puzzle (date, data)
+            INSERT INTO pokedoku2puzzle (date, data)
             VALUES (%s, %s)
             ON CONFLICT (date) DO UPDATE SET data = EXCLUDED.data;
         """
@@ -74,7 +74,7 @@ class Database:
 
     def get_puzzle(self, date: str) -> dict:
         query = """
-            SELECT data FROM puzzle WHERE date = %s
+            SELECT data FROM pokedoku2puzzle WHERE date = %s
         """
         data: dict = self.commit_query(
             query=query, 
@@ -93,5 +93,5 @@ db = Database(connection_string)
 # Running this script sets up the database tables
 if __name__ == "__main__":
     db.create_puzzle_table()
-
+    
     # code.interact(local=locals())
